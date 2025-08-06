@@ -51,14 +51,14 @@ Developer:
 - User Management: Admin-controlled user creation and role management
 - Dashboard: Role-based dashboards with relevant information
 - Responsive Design: Mobile-friendly interface
-  ## Setup Instructions 
+## Setup Instructions 
 ### Prerequisites
 
 - Java 17 or higher
 - Node.js 16 or higher
 - Maven 3.6 or higher
 - Git
-  ### 1> Clone the repository 
+### 1> Clone the repository 
 ```
 git clone <repository-url>
 cd pixelforge-nexus
@@ -171,8 +171,6 @@ spring.jpa.hibernate.ddl-auto=update
 - PUT /api/users/change-password - Change password
 
 ```
-## Note:
-This is a complete, production-ready secure project management system with comprehensive security features and role-based access control. All security best practices have been implemented including JWT authentication, password hashing, input validation, and secure file handling.
 ## Frontend overview :-
 - Login
 <img src="assets/login.png" alt="Description of the GIF" width="1000">
@@ -180,106 +178,15 @@ This is a complete, production-ready secure project management system with compr
 - Dashboard : -
 <img src="assets/dashboard.png" alt="Alt text" width="1000" />
 
-## Backend overview :-
-- Test cases :
-  Get all users >>>
-  <img src="assets/getUsers.png" alt="Alt text" width="1000" />
+- Project details : -
+<img src="assets/projectdetails.png" alt="Alt text" width="1000" />
 
-  Update user >>>
-  <img src="assets/updateUser.png" alt="Alt text" width="1000" />
+- User management : -
+<img src="assets/usermanagement.png" alt="Alt text" width="1000" />
 
-### Rest Controller :-
 
-```
-@RestController
-@RequestMapping("api/users")
-public class UserController {
-
-    @Autowired
-    private UserService userService;
-
-    @PostMapping("/")
-    public ResponseEntity<?> createUser(@RequestBody UserDto userDto) throws Exception {
-
-        Boolean saveUser = userService.createUser(userDto);
-
-        if (saveUser) {
-            return CommonUtil.createBuildResponseMessage("User created successfully", HttpStatus.CREATED);
-        }
-        return CommonUtil.createErrorResponseMessage("User not created", HttpStatus.INTERNAL_SERVER_ERROR);
-
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<?> updateUser(@PathVariable String id, @RequestBody UserDto userDto) throws Exception {
-
-        Boolean saveUser = userService.updateUser(id, userDto);
-
-        if (saveUser) {
-            return CommonUtil.createBuildResponseMessage("User updated successfully", HttpStatus.CREATED);
-        }
-        return CommonUtil.createErrorResponseMessage("Failed to update user", HttpStatus.INTERNAL_SERVER_ERROR);
-
-    }
-
-    @GetMapping
-    public ResponseEntity<?> getAllUsers() {
-        List<UserDto> users = userService.getAllUser();
-        if (CollectionUtils.isEmpty(users)) {
-
-            return ResponseEntity.noContent().build();
-        }
-        return CommonUtil.createBuildResponse(users, HttpStatus.OK);
-    }
-    @DeleteMapping("/{id}")
-     @CrossOrigin(origins = "http://localhost:3000")
-    public ResponseEntity<?> deleteUser(@PathVariable String id) throws Exception {
-
-        userService.deleteUser(id);
-        return CommonUtil.createBuildResponseMessage("Delete success", HttpStatus.OK);
-
-    }
-
-}
-
-```
-
-### Global Exception Handling :-
-```
-@Slf4j
-@ControllerAdvice 
-public class GlobalExceptionHandler {
-
-     @ExceptionHandler(Exception.class)
-    public ResponseEntity<?>handleException(Exception e){
-
-        log.error("GlobalExceptionHandler :: handleException ::", e.getMessage());
-       
-        return  CommonUtil.createErrorResponseMessage(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-
-    }
-
-    @ExceptionHandler(NullPointerException.class)
-    public ResponseEntity<?>handleNullPointerException(Exception e){
-        log.error("GlobalExceptionHandler :: handleNullPointerException ::", e.getMessage());
-        return  CommonUtil.createErrorResponseMessage(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-
-    }
-    @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<?>handleResourceNotFoundException(Exception e){
-        return  CommonUtil.createErrorResponseMessage(e.getMessage(), HttpStatus.NOT_FOUND);
-
-    }
-    @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<?>handleIllegalArgumentException(IllegalArgumentException e){
-
-        return  CommonUtil.createErrorResponseMessage(e.getMessage(), HttpStatus.BAD_REQUEST);
-
-    }
-
-}
-```
-
+## Note:
+This is a complete, production-ready secure project management system with comprehensive security features and role-based access control. All security best practices have been implemented including JWT authentication, password hashing, input validation, and secure file handling.
 
 # Author 
 ## Robin Juyal | robinjuyal29@gmail.com | 9548933347
