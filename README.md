@@ -11,13 +11,16 @@ PixelForge Nexus is a comprehensive secure project management system built for C
 - Security: Role-based access control (RBAC)
 
 ## Setup Instructions 
+### Prerequisites
 
-- Open the ums-backend folder to any code editor and run the project . Note - your computer must have Springboot already installed with proper setup.
-- Database is handled by Mysql therefore it should be installed on your pc
-- If properly done your Springboot application will start to run on port 8080 .
-- Open the ums-frontend folder to any code editor and run - ' npm start '
-- The frontend code will start to run on your localhost port 3000 (Your computer should have node and npm already installed).
-
+- Java 17 or higher
+- Node.js 16 or higher
+- Maven 3.6 or higher
+- Git
+```
+git clone <repository-url>
+cd pixelforge-nexus
+```
 ## Security features  
 
 - JWT Authentication: Secure token-based authentication
