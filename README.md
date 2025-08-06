@@ -17,10 +17,46 @@ PixelForge Nexus is a comprehensive secure project management system built for C
 - Node.js 16 or higher
 - Maven 3.6 or higher
 - Git
+  ### 1> Clone the repository 
 ```
 git clone <repository-url>
 cd pixelforge-nexus
 ```
+### 2> Nevigate to backend directory
+```
+mkdir backend
+cd backend
+```
+### 3> Create the project structure
+```
+backend/
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── com/
+│       │       └── pixelforge/
+│       │           └── nexus/
+│       │               ├── PixelForgeNexusApplication.java
+│       │               ├── config/
+│       │               │   ├── DataInitializer.java
+│       │               │   └── SecurityConfig.java
+│       │               ├── controller/
+│       │               │   ├── AuthController.java
+│       │               │   ├── UserController.java
+│       │               │   ├── ProjectController.java
+│       │               │   └── DocumentController.java
+│       │               ├── dto/
+│       │               ├── entity/
+│       │               ├── exception/
+│       │               ├── repository/
+│       │               ├── security/
+│       │               └── service/
+│       └── resources/
+│           └── application.yml
+├── pom.xml
+└── uploads/ (created automatically)
+```
+
 ## Security features  
 
 - JWT Authentication: Secure token-based authentication
