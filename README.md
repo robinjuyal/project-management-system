@@ -174,11 +174,11 @@ spring.jpa.hibernate.ddl-auto=update
 ## Note:
 This is a complete, production-ready secure project management system with comprehensive security features and role-based access control. All security best practices have been implemented including JWT authentication, password hashing, input validation, and secure file handling.
 ## Frontend overview :-
-- LIVE DEMO
-<img src="assets/DragAndDropHobby.gif" alt="Description of the GIF" width="1000">
+- Login
+<img src="assets/login.png" alt="Description of the GIF" width="1000">
 
-- Preview : -
-<img src="assets/frontend.png.png" alt="Alt text" width="1000" />
+- Dashboard : -
+<img src="assets/dashboard.png" alt="Alt text" width="1000" />
 
 ## Backend overview :-
 - Test cases :
